@@ -11,4 +11,11 @@ public class WeatherData{
         this.conditions = conditions;
         this.source = source;
     }
+    public String getLocation() {
+        return location;
+    }
+
+    public double getTemperature() {
+        return temperature;
+    }
 }
