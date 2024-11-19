@@ -23,6 +23,10 @@ public class OpenWeatherAPI {
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
 
+        if (conn.getResponseCode() != 200) {
+            throw new Exception("Failed to get weather data from OpenWeather API");
+        }
+
         Scanner scanner = new Scanner(conn.getInputStream());
         return new JSONObject();
     }
