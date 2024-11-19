@@ -21,12 +21,16 @@ public class WeatherServiceProxy{
         try {
             if (isRateAllowed("WeatherStack")) {
                 WeatherData weatherData = weatherStack.getWeatherByCity(city);
-                return weatherData;}
+                cacheManager.cacheData(city, weatherData);
+                updateRateLimiter("WeatherStack");
+                return weatherData;
+            }
         } catch (Exception e) {
             System.out.println("WeatherStack failed: " + e.getMessage());
         }
 
         WeatherData weatherData = openWeather.getWeatherByCity(city);
+        cacheManager.cacheData(city, weatherData);
         return weatherData;
     }
     private boolean isRateAllowed(String provider) {
@@ -35,4 +39,5 @@ public class WeatherServiceProxy{
 
         return lastRequestTime == null || (currentTime - lastRequestTime > 30000);
     }
+    private void updateRateLimiter(String provider) {}
 }
