@@ -12,8 +12,13 @@ public class WeatherServiceProxy{
     public WeatherData getWeatherByCity(String city) throws Exception {
         WeatherData cachedData = cacheManager.getCachedData(city);
         if (cachedData != null) return cachedData;
-        try {} catch{}
+        try {
+            if (isRateAllowed("WeatherStack")) {
+                WeatherData weatherData = weatherStack.getWeatherByCity(city);
+                return weatherData;}
+        } catch{}
         WeatherData weatherData = openWeather.getWeatherByCity(city);
         return weatherData;
     }
+    private boolean isRateAllowed(String provider) {}
 }
