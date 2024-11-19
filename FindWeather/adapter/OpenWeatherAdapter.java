@@ -17,6 +17,6 @@ public class OpenWeatherAdapter implements WeatherProvider{
         JSONObject response = api.getWeatherByCity(city);
         double temperature = response.getJSONObject("current").getDouble("temperature");
         String conditions = response.getJSONObject("current").getJSONArray("weather_descriptions").getString(0);
-        return new WeatherData();
+        return new WeatherData(city, temperature, conditions, "OpenWeather");
     }
 }
