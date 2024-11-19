@@ -14,8 +14,13 @@ public class WeatherData{
     public String getLocation() {
         return location;
     }
-
     public double getTemperature() {
         return temperature;
+    }
+    public String getConditions() {
+        return conditions;
+    }
+    public String getSource() {
+        return source;
     }
 }
