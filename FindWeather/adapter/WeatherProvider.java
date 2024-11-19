@@ -1,4 +1,5 @@
 package adapter;
+import models.WeatherData;
 public interface WeatherProvider{
-    WeatherProvider getWeather();
+    WeatherData getWeather() throws Exception;
 }
