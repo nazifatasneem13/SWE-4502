@@ -1,3 +1,4 @@
+package adapter;
 public interface WeatherProvider{
-    WeatherProvider getWeather(Location location) throws Exception;
+    WeatherProvider getWeather();
 }
