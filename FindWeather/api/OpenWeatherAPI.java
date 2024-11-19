@@ -28,6 +28,8 @@ public class OpenWeatherAPI {
         }
 
         Scanner scanner = new Scanner(conn.getInputStream());
+        scanner.close();
+
         return new JSONObject();
     }
 }

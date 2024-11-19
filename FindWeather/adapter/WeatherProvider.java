@@ -1,6 +1,6 @@
 package adapter;
 import models.WeatherData;
 public interface WeatherProvider{
-    WeatherData getWeather() throws Exception;
-    WeatherData getWeatherByCity(String city);
+    WeatherData getWeatherByIP(double latitude, double longitude) throws Exception;
+    WeatherData getWeatherByCity(String city) throws Exception;
 }

@@ -1,4 +1,5 @@
 package adapter;
 
-public class OpenWeatherAdapter {
+public class OpenWeatherAdapter implements WeatherProvider{
+    
 }
