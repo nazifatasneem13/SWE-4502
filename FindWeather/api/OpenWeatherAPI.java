@@ -6,4 +6,12 @@ public class OpenWeatherAPI {
     {
         return new JSONObject();
     }
+    public JSONObject getWeatherByCity(String city)
+    {
+
+    }
+    public JSONObject featchWeatherData()
+    {
+        
+    }
 }
