@@ -10,6 +10,9 @@ public class WeatherServiceProxy{
         this.cacheManager = new CacheManager();
     }
     public WeatherData getWeatherByCity(String city) throws Exception {
+        WeatherData cachedData = cacheManager.getCachedData(city);
+        if (cachedData != null) return cachedData;
+        try {} catch{}
         WeatherData weatherData = openWeather.getWeatherByCity(city);
         return weatherData;
     }
