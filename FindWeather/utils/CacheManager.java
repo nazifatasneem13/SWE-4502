@@ -13,6 +13,9 @@ public class CacheManager {
         }
         return null;
     }
+    public void cacheData(String location, WeatherData data) {
+        cache.put(location, new CacheEntry(data));
+    }
     private static class CacheEntry {
         WeatherData data;
         long timestamp;
