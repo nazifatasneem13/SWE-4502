@@ -6,8 +6,11 @@ import java.util.HashMap;
 
 public class CacheManager {
     private final HashMap<String, CacheEntry> cache = new HashMap<>();
-    public WeatherData getCachedData(String location)
-    {
+    public WeatherData getCachedData(String location) {
+        CacheEntry entry = cache.get(location);
+        if (entry != null && (System.currentTimeMillis() - entry.timestamp < 600000)) {
+            return entry.data;
+        }
         return null;
     }
     private static class CacheEntry {
