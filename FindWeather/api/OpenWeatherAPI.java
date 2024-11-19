@@ -16,7 +16,7 @@ public class OpenWeatherAPI {
     }
     public JSONObject getWeatherByIP(String city)
     {
-        return fetchWeatherData();
+        return null;
     }
     public JSONObject fetchWeatherData(String apiUrl) throws Exception {
         URL url = new URL(apiUrl);
