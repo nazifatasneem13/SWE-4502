@@ -39,5 +39,7 @@ public class WeatherServiceProxy{
 
         return lastRequestTime == null || (currentTime - lastRequestTime > 30000);
     }
-    private void updateRateLimiter(String provider) {}
+    private void updateRateLimiter(String provider) {
+        rateLimiter.put(provider, System.currentTimeMillis());
+    }
 }
