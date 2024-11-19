@@ -4,8 +4,11 @@ public class WeatherData{
     private double temperature;
     private String conditions;
     private String source;
-    public WeatherData()
+    public WeatherData(String location, double temperature, String conditions, String source)
     {
-        
+        this.location = location;
+        this.temperature = temperature;
+        this.conditions = conditions;
+        this.source = source;
     }
 }
