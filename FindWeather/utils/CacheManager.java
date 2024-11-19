@@ -10,5 +10,12 @@ public class CacheManager {
     {
         return null;
     }
-    private static class CacheEntry {}
+    private static class CacheEntry {
+        WeatherData data;
+        long timestamp;
+        CacheEntry(WeatherData data) {
+            this.data = data;
+            this.timestamp = System.currentTimeMillis();
+        }
+    }
 }
