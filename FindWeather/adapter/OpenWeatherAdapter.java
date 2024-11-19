@@ -7,5 +7,8 @@ public class OpenWeatherAdapter implements WeatherProvider{
     public WeatherData getWeatherByIP(double latitude, double longitude) throws Exception {
         return new WeatherData();
     }
-    
+    @Override
+    public WeatherData getWeatherByCity(String city) throws Exception {
+        return new WeatherData();
+    }
 }
