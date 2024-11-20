@@ -9,4 +9,13 @@ public class Location {
         this.latitude = latitude;
         this.longitude = longitude;
     }
+    public String getCity() {
+        return city;
+    }
+    public double getLatitude() {
+        return latitude;
+    }
+    public double getLongitude() {
+        return longitude;
+    }
 }
