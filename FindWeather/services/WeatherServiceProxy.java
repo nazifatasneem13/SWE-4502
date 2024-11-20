@@ -35,6 +35,9 @@ public class WeatherServiceProxy{
         } catch (Exception e) {
             System.out.println("WeatherStack failed: " + e.getMessage());
         }
+        WeatherData weatherData = openWeather.getWeatherByIP(latitude, longitude);
+        cacheManager.cacheData("IP:" + latitude + "," + longitude, weatherData);
+        return weatherData;
     }
     public WeatherData getWeatherByCity(String city) throws Exception {
         WeatherData cachedData = cacheManager.getCachedData(city);
