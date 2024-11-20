@@ -1,15 +1,18 @@
 package services;
 import adapter.OpenWeatherAdapter;
+import adapter.WeatherStackAdapter;
 import models.WeatherData;
 import utils.CacheManager;
 
 import java.util.HashMap;
 
 public class WeatherServiceProxy{
+    private final WeatherStackAdapter weatherStack;
     private final OpenWeatherAdapter openWeather;
     private final CacheManager cacheManager;
     private final HashMap<String, Long> rateLimiter;
     public WeatherServiceProxy() {
+        this.weatherStack = new WeatherStackAdapter();
         this.openWeather = new OpenWeatherAdapter();
         this.cacheManager = new CacheManager();
         this.rateLimiter = new HashMap<>();
