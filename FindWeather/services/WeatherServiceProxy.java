@@ -25,7 +25,13 @@ public class WeatherServiceProxy{
         Location location = ipAdapter.getLocationByIP(); // Fetch location by IP
         return getWeatherFromProvidersByIP(location.getLatitude(), location.getLongitude());
     }
-    private WeatherData getWeatherFromProvidersByIP(double latitude, double longitude) throws Exception {}
+    private WeatherData getWeatherFromProvidersByIP(double latitude, double longitude) throws Exception {
+        try {
+            
+        } catch (Exception e) {
+            System.out.println("WeatherStack failed: " + e.getMessage());
+        }
+    }
     public WeatherData getWeatherByCity(String city) throws Exception {
         WeatherData cachedData = cacheManager.getCachedData(city);
         if (cachedData != null) return cachedData;
