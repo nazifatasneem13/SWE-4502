@@ -15,6 +15,9 @@ public class WeatherStackAPI {
         );
         return fetchWeatherData(apiUrl);
     }
+    public JSONObject getWeatherByIP(double latitude, double longitude) throws Exception {
+        return fetchWeatherData(apiUrl);
+    }
     private JSONObject fetchWeatherData(String apiUrl) throws Exception {
         URL url = new URL(apiUrl);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();

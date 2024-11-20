@@ -21,5 +21,7 @@ public class WeatherStackAdapter implements WeatherProvider{
         JSONObject response = api.getWeatherByIP(latitude, longitude);
         double temperature = response.getJSONObject("current").getDouble("temperature");
         String conditions = response.getJSONObject("current").getJSONArray("weather_descriptions").getString(0);
+
+        return new WeatherData("Location via IP", temperature, conditions, "WeatherStack");
     }
 }
