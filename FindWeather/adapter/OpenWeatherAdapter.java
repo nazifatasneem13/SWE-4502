@@ -10,7 +10,10 @@ public class OpenWeatherAdapter implements WeatherProvider{
     }
     @Override
     public WeatherData getWeatherByIP(double latitude, double longitude) throws Exception {
-        return null;
+        JSONObject response = api.getWeatherByIP(latitude, longitude);
+        double temperature = response.getJSONObject("main").getDouble("temp");
+        String conditions = response.getJSONArray("weather").getJSONObject(0).getString("description");
+        return new WeatherData("Location via IP", temperature, conditions, "OpenWeather");
     }
     @Override
     public WeatherData getWeatherByCity(String city) throws Exception {
