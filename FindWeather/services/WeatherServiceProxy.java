@@ -2,6 +2,7 @@ package services;
 import adapter.IPAdapter;
 import adapter.OpenWeatherAdapter;
 import adapter.WeatherStackAdapter;
+import models.Location;
 import models.WeatherData;
 import utils.CacheManager;
 
@@ -20,6 +21,11 @@ public class WeatherServiceProxy{
         this.cacheManager = new CacheManager();
         this.rateLimiter = new HashMap<>();
     }
+    public WeatherData getWeatherByIP() throws Exception {
+        Location location = ipAdapter.getLocationByIP(); // Fetch location by IP
+        return getWeatherFromProvidersByIP(location.getLatitude(), location.getLongitude());
+    }
+    private WeatherData getWeatherFromProvidersByIP(double latitude, double longitude) throws Exception {}
     public WeatherData getWeatherByCity(String city) throws Exception {
         WeatherData cachedData = cacheManager.getCachedData(city);
         if (cachedData != null) return cachedData;
