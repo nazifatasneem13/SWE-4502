@@ -14,9 +14,13 @@ public class OpenWeatherAPI {
         );
         return fetchWeatherData(apiUrl);
     }
-    public JSONObject getWeatherByIP(String city)
+    public JSONObject getWeatherByIP(double latitude, double longitude) throws Exception
     {
-        return null;
+        String apiUrl = String.format(
+                "https://api.openweathermap.org/data/2.5/weather?lat=%f&lon=%f&units=metric&appid=%s",
+                latitude, longitude, API_KEY
+        );
+        return fetchWeatherData(apiUrl);
     }
     public JSONObject fetchWeatherData(String apiUrl) throws Exception {
         URL url = new URL(apiUrl);
