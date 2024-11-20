@@ -32,8 +32,9 @@ public class OpenWeatherAPI {
         }
 
         Scanner scanner = new Scanner(conn.getInputStream());
+        String response = scanner.useDelimiter("\\A").next();
         scanner.close();
 
-        return new JSONObject();
+        return new JSONObject(response);
     }
 }
