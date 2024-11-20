@@ -16,6 +16,11 @@ public class WeatherStackAPI {
         return fetchWeatherData(apiUrl);
     }
     public JSONObject getWeatherByIP(double latitude, double longitude) throws Exception {
+        String apiUrl = String.format(
+                "http://api.weatherstack.com/current?access_key=%s&query=%f,%f",
+                API_KEY, latitude, longitude
+        );
+
         return fetchWeatherData(apiUrl);
     }
     private JSONObject fetchWeatherData(String apiUrl) throws Exception {
