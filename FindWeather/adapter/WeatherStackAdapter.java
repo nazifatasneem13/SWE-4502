@@ -17,5 +17,9 @@ public class WeatherStackAdapter implements WeatherProvider{
         return new WeatherData(city, temperature, conditions, "WeatherStack");
     }
     @Override
-    public WeatherData getWeatherByIP(double latitude, double longitude) throws Exception {}
+    public WeatherData getWeatherByIP(double latitude, double longitude) throws Exception {
+        JSONObject response = api.getWeatherByIP(latitude, longitude);
+        double temperature = response.getJSONObject("current").getDouble("temperature");
+        String conditions = response.getJSONObject("current").getJSONArray("weather_descriptions").getString(0);
+    }
 }
