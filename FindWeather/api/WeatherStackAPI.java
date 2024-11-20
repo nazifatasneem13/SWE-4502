@@ -19,6 +19,10 @@ public class WeatherStackAPI {
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
 
+        if (conn.getResponseCode() != 200) {
+            throw new Exception("Failed to get weather data from WeatherStack API");
+        }
+
         return new JSONObject(response);
     }
 }
