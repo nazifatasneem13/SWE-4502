@@ -2,6 +2,9 @@ package api;
 
 import org.json.JSONObject;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 public class WeatherStackAPI {
     private static final String API_KEY = "f1177d07fc4272ae4bbccb419a699e91";
     public JSONObject getWeatherByCity(String city) throws Exception {
@@ -12,6 +15,10 @@ public class WeatherStackAPI {
         return fetchWeatherData(apiUrl);
     }
     private JSONObject fetchWeatherData(String apiUrl) throws Exception {
+        URL url = new URL(apiUrl);
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.setRequestMethod("GET");
 
+        return new JSONObject(response);
     }
 }
