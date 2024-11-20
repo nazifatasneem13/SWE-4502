@@ -27,5 +27,7 @@ public class IPStackService {
         String city = jsonResponse.optString("city", "Unknown");
         double latitude = jsonResponse.getDouble("latitude");
         double longitude = jsonResponse.getDouble("longitude");
+
+        return new Location(city, latitude, longitude);
     }
 }
