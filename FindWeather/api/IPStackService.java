@@ -4,6 +4,7 @@ import models.Location;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Scanner;
 
 public class IPStackService {
     private static final String API_KEY = "672a2c4fe1dd4739cf51e155cec02b4f";
@@ -13,5 +14,12 @@ public class IPStackService {
         URL url = new URL(apiUrl);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
+        if (conn.getResponseCode() != 200) {
+            throw new Exception("Failed to get location from IPStack API");
+        }
+
+        Scanner scanner = new Scanner(conn.getInputStream());
+        String response = scanner.useDelimiter("\\A").next();
+        scanner.close();
     }
 }
