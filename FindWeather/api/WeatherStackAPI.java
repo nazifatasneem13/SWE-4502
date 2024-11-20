@@ -4,6 +4,7 @@ import org.json.JSONObject;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Scanner;
 
 public class WeatherStackAPI {
     private static final String API_KEY = "f1177d07fc4272ae4bbccb419a699e91";
@@ -22,6 +23,10 @@ public class WeatherStackAPI {
         if (conn.getResponseCode() != 200) {
             throw new Exception("Failed to get weather data from WeatherStack API");
         }
+
+        Scanner scanner = new Scanner(conn.getInputStream());
+        String response = scanner.useDelimiter("\\A").next();
+        scanner.close();
 
         return new JSONObject(response);
     }
