@@ -27,7 +27,11 @@ public class WeatherServiceProxy{
     }
     private WeatherData getWeatherFromProvidersByIP(double latitude, double longitude) throws Exception {
         try {
-            
+            if (isRateAllowed("WeatherStack")) {
+                WeatherData weatherData = weatherStack.getWeatherByIP(latitude, longitude);
+                cacheManager.cacheData("IP:" + latitude + "," + longitude, weatherData);
+                updateRateLimiter("WeatherStack");
+                return weatherData; }
         } catch (Exception e) {
             System.out.println("WeatherStack failed: " + e.getMessage());
         }
