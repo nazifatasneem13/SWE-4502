@@ -1,6 +1,7 @@
 package api;
 
 import models.Location;
+import org.json.JSONObject;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -21,5 +22,10 @@ public class IPStackService {
         Scanner scanner = new Scanner(conn.getInputStream());
         String response = scanner.useDelimiter("\\A").next();
         scanner.close();
+
+        JSONObject jsonResponse = new JSONObject(response);
+        String city = jsonResponse.optString("city", "Unknown");
+        double latitude = jsonResponse.getDouble("latitude");
+        double longitude = jsonResponse.getDouble("longitude");
     }
 }
