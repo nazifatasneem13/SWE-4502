@@ -21,7 +21,13 @@ public class App {
                 if (choice == 1) {
                     System.out.println("Fetching weather data by IP...");
                     WeatherData weatherByIP = weatherService.getWeatherByIP();
-                    System.out.println("Weather Data:");}}catch(Exception e){}
+                    System.out.println("Weather Data:");
+                    System.out.println("Location: " + weatherByIP.getLocation());
+                    System.out.println("Temperature: " + weatherByIP.getTemperature() + "°C");
+                    System.out.println("Conditions: " + weatherByIP.getConditions());
+                    System.out.println("Source: " + weatherByIP.getSource());
+                }
+            }catch(Exception e){}
         }
     }
 }
