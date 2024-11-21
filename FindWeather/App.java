@@ -30,7 +30,18 @@ public class App {
                     System.out.print("Enter city name: ");
                     String cityName = scanner.nextLine();
                     System.out.println("Fetching weather data for city: " + cityName + "...");
-                    WeatherData weatherByCity = weatherService.getWeatherByCity(cityName);}
+                    WeatherData weatherByCity = weatherService.getWeatherByCity(cityName);
+                    System.out.println("Weather Data:");
+                    System.out.println("Location: " + weatherByCity.getLocation());
+                    System.out.println("Temperature: " + weatherByCity.getTemperature() + "°C");
+                    System.out.println("Conditions: " + weatherByCity.getConditions());
+                    System.out.println("Source: " + weatherByCity.getSource());
+                } else if (choice == 3) {
+                    System.out.println("Exiting the Weather App. Goodbye!");
+                    break;
+                } else {
+                    System.out.println("Invalid choice! Please select a valid option.");
+                }
             }catch(Exception e){}
         }
     }
