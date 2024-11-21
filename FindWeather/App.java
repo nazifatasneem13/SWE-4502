@@ -1,3 +1,4 @@
+import models.WeatherData;
 import services.WeatherServiceProxy;
 import java.util.Scanner;
 
@@ -15,6 +16,12 @@ public class App {
 
             int choice = scanner.nextInt();
             scanner.nextLine();
+
+            try {
+                if (choice == 1) {
+                    System.out.println("Fetching weather data by IP...");
+                    WeatherData weatherByIP = weatherService.getWeatherByIP();
+                    System.out.println("Weather Data:");}}catch(Exception e){}
         }
     }
 }
