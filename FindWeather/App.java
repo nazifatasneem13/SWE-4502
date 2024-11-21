@@ -8,6 +8,13 @@ public class App {
 
         while (true) {
             System.out.println("Weather App Menu:");
-            System.out.println("1. Get Weather by IP");}
+            System.out.println("1. Get Weather by IP");
+            System.out.println("2. Get Weather by City Name");
+            System.out.println("3. Exit");
+            System.out.print("Enter your choice: ");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+        }
     }
 }
