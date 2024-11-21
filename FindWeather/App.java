@@ -26,7 +26,11 @@ public class App {
                     System.out.println("Temperature: " + weatherByIP.getTemperature() + "°C");
                     System.out.println("Conditions: " + weatherByIP.getConditions());
                     System.out.println("Source: " + weatherByIP.getSource());
-                }
+                } else if (choice == 2) {
+                    System.out.print("Enter city name: ");
+                    String cityName = scanner.nextLine();
+                    System.out.println("Fetching weather data for city: " + cityName + "...");
+                    WeatherData weatherByCity = weatherService.getWeatherByCity(cityName);}
             }catch(Exception e){}
         }
     }
