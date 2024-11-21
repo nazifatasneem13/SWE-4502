@@ -42,7 +42,11 @@ public class App {
                 } else {
                     System.out.println("Invalid choice! Please select a valid option.");
                 }
-            }catch(Exception e){}
+            } catch(Exception e){
+                System.err.println("Error: " + e.getMessage());
+            }
+            System.out.println();
         }
+        scanner.close();
     }
 }
